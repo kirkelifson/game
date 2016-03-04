@@ -1,0 +1,6 @@
+VertexLitGeneric
+{
+	"$basetexture" "models/weapons/momentum_gun.vtf"
+	"$bumpmap" "models/weapons/momentum_gun_normal"
+	"$surfaceprop" "item"
+}
