@@ -195,17 +195,18 @@ void CBaseMapsPage::ApplySchemeSettings(IScheme *pScheme)
     // Images
     ImageList *imageList = new ImageList(false);
     //MOM_TODO: Load custom images for the map selector
-    imageList->AddImage(scheme()->GetImage("servers/icon_password", false));//Completed icon (index 1)
-    imageList->AddImage(scheme()->GetImage("servers/icon_bots", false));//Linear map icon (index 2)
-    imageList->AddImage(scheme()->GetImage("servers/icon_robotron", false));//Staged map icon (index 3)
+    //imageList->AddImage(scheme()->GetImage("servers/icon_password", false));//Completed icon (index 1)
+    imageList->AddImage(scheme()->GetImage("icon_map_completed", false));
+    imageList->AddImage(scheme()->GetImage("icon_map_type_linear", false));//Linear map icon (index 2)
+    imageList->AddImage(scheme()->GetImage("icon_map_type_staged", false));//Staged map icon (index 3)
     //imageList->AddImage(scheme()->GetImage("servers/icon_secure_deny", false));
 
-    int passwordColumnImage = imageList->AddImage(scheme()->GetImage("servers/icon_password_column", false));//Completed column header image
-    int botColumnImage = imageList->AddImage(scheme()->GetImage("servers/icon_bots_column", false));//Map layout (staged/linear) column header image
+    int mapCompletedColumnImage = imageList->AddImage(scheme()->GetImage("icon_map_completed_column", false));//Completed column header image
+    int mapTypeColumnImage = imageList->AddImage(scheme()->GetImage("icon_map_type_column", false));//Map layout (staged/linear) column header image
     //int secureColumnImage = imageList->AddImage(scheme()->GetImage("servers/icon_robotron_column", false));
     m_pGameList->SetImageList(imageList, true);
-    m_pGameList->SetColumnHeaderImage(HEADER_COMPLETED, passwordColumnImage);
-    m_pGameList->SetColumnHeaderImage(HEADER_MAPLAYOUT, botColumnImage);
+    m_pGameList->SetColumnHeaderImage(HEADER_COMPLETED, mapCompletedColumnImage);
+    m_pGameList->SetColumnHeaderImage(HEADER_MAPLAYOUT, mapTypeColumnImage);
     //m_pGameList->SetColumnHeaderImage(HEADER_STAGEDMAP, secureColumnImage);
 
     //Font
