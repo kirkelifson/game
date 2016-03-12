@@ -869,7 +869,7 @@ bool CBaseMapsPage::CheckPrimaryFilters(mapstruct_t &map)
         return false;
     }
 
-    if (count && Q_strnicmp(map.m_szMapName, m_szMapFilter, count))
+    if (count && !Q_strstr(map.m_szMapName, m_szMapFilter))//strstr returns null if the substring is not in the base string
     {
         DevLog("Map %s does not pass filter %s \n", map.m_szMapName, m_szMapFilter);
         return false;
