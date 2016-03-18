@@ -52,13 +52,14 @@ $Project "Server (Momentum)"
 			
 			$File	"momentum\mom_blockfix.h"
 			$File	"momentum\mom_blockfix.cpp"
+            $File "momentum\mom_boosterfix.h"
+            $File "momentum\mom_boosterfix.cpp"
 			$File   "momentum\mom_triggers.h"
 			$File	"momentum\mom_triggers.cpp"
 
 			$Folder "Weapons"
 			{
 			    $File "$SRCDIR\game\shared\momentum\weapon_momentum_gun.cpp"
-				//MOM_TODO: Add the rest of the weapon files here
 				$File "$SRCDIR\game\shared\momentum\basecsgrenade_projectile.cpp"
 				$File "$SRCDIR\game\shared\momentum\basecsgrenade_projectile.h"
 				$File "$SRCDIR\game\shared\momentum\cs_ammodef.cpp"
