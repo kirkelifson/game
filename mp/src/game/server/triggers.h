@@ -222,7 +222,26 @@ public:
 
 	CUtlVector<EHANDLE>	m_hurtEntities;
 };
+//-----------------------------------------------------------------------------
+// Purpose: A trigger that pushes the player, NPCs, or objects.
+//-----------------------------------------------------------------------------
+class CTriggerPush : public CBaseTrigger
+{
+public:
+    DECLARE_CLASS(CTriggerPush, CBaseTrigger);
 
+    void Spawn(void);
+    void Activate(void);
+    void Touch(CBaseEntity *pOther);
+    void Untouch(CBaseEntity *pOther);
+
+    Vector m_vecPushDir;
+
+    DECLARE_DATADESC();
+
+    float m_flAlternateTicksFix; // Scale factor to apply to the push speed when running with alternate ticks
+    float m_flPushSpeed;
+};
 bool IsTakingTriggerHurtDamageAtPoint( const Vector &vecPoint );
 
 #endif // TRIGGERS_H

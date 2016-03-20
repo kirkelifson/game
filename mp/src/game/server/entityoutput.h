@@ -78,7 +78,7 @@ public:
 	/// Delete every single action in the action list. 
 	void DeleteAllElements( void ) ;
 
-protected:
+public:
 	variant_t m_Value;
 	CEventAction *m_ActionList;
 	DECLARE_SIMPLE_DATADESC();

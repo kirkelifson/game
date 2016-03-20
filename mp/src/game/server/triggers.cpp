@@ -2160,28 +2160,6 @@ int CChangeLevel::ChangeList( levellist_t *pLevelList, int maxList )
 	return count;
 }
 
-
-//-----------------------------------------------------------------------------
-// Purpose: A trigger that pushes the player, NPCs, or objects.
-//-----------------------------------------------------------------------------
-class CTriggerPush : public CBaseTrigger
-{
-public:
-	DECLARE_CLASS( CTriggerPush, CBaseTrigger );
-
-	void Spawn( void );
-	void Activate( void );
-	void Touch( CBaseEntity *pOther );
-	void Untouch( CBaseEntity *pOther );
-
-	Vector m_vecPushDir;
-
-	DECLARE_DATADESC();
-	
-	float m_flAlternateTicksFix; // Scale factor to apply to the push speed when running with alternate ticks
-	float m_flPushSpeed;
-};
-
 BEGIN_DATADESC( CTriggerPush )
 	DEFINE_KEYFIELD( m_vecPushDir, FIELD_VECTOR, "pushdir" ),
 	DEFINE_KEYFIELD( m_flAlternateTicksFix, FIELD_FLOAT, "alternateticksfix" ),
