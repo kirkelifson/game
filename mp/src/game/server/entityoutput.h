@@ -78,7 +78,11 @@ public:
 	/// Delete every single action in the action list. 
 	void DeleteAllElements( void ) ;
 
-public:
+    //MOM_SDK_ADDED: these getter methods were added so the procted values can used in CMOMEntityOutputInfo
+    variant_t get_m_Value() { return m_Value; }
+    CEventAction* get_m_ActionList() { return m_ActionList; }
+
+protected:
 	variant_t m_Value;
 	CEventAction *m_ActionList;
 	DECLARE_SIMPLE_DATADESC();
