@@ -158,7 +158,7 @@ void CMapSelectorDialog::LoadUserData()
     int wide, tall;
     surface()->GetScreenSize(wide, tall);
 
-    SetPos(wide / 2, tall / 3);
+    SetPos(wide / 2 - GetWide() / 2, tall / 2 - GetTall() / 2);
 
     InvalidateLayout();
     Repaint();
