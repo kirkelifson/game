@@ -646,3 +646,16 @@ void CTriggerMomentumPush::OnSuccessfulTouch(CBaseEntity *pOther)
     }
 }
 //-----------------------------------------------------------------------------------------------
+
+// Bonus
+LINK_ENTITY_TO_CLASS(trigger_momentum_timer_start_bonus, CTriggerTimerStartBonus);
+
+BEGIN_DATADESC(CTriggerTimerStartBonus)
+DEFINE_KEYFIELD(m_iZoneNumber, FIELD_INTEGER, "stage")
+END_DATADESC();
+
+void CTriggerTimerStartBonus::Spawn()
+{
+    BaseClass::SetStageNumber(m_iZoneNumber);
+    BaseClass::Spawn();
+}

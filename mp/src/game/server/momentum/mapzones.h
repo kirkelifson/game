@@ -15,6 +15,7 @@
 #define MOMZONETYPE_CPTELE      5
 #define MOMZONETYPE_MULTIHOP    6
 #define MOMZONETYPE_STAGE       7
+#define MOMZONETYPE_BONUS       8
 
 class CMapzone
 {

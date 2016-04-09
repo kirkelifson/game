@@ -19,6 +19,19 @@ typedef enum MOMGM
     
 } GAMEMODES;
 
+typedef enum RUNFLAGS
+{
+    FLAG_66TICK = 0x0001,
+    FLAG_100TICK = 0x0002,
+    FLAG_SCROLL_ONLY = 0x0004,
+    FLAG_W_ONLY = 0x0008,
+    FLAG_HALF_SIDEWAYS = 0x0010,
+    FLAG_BACKWARDS_ONLY = 0x0020,
+    FLAG_SIDEWAYS_ONLY = 0x0040,
+    FLAG_BONUS_STAGE = 0x0080
+    
+} FLAGS;
+
 #define PANEL_TIMES "times"
 
 // Main Version (0 is alpha, 1 is beta, 2 is release)​.Main feature push (increment by one for each)​.​Small commits or hotfixes​

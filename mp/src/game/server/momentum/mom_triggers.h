@@ -317,4 +317,19 @@ private:
     // Pointer to the destination entity if a teleport is needed
     CBaseEntity *m_Destination;
 };
+
+// CTriggerTimerStartBonus - basically the start trigger for bonus stages
+class CTriggerTimerStartBonus : public CTriggerTimerStart
+{
+    DECLARE_CLASS(CTriggerTimerStartBonus, CTriggerTimerStart);
+    DECLARE_DATADESC();
+
+public:
+    void Spawn();
+
+private:
+    int m_iZoneNumber;
+};
+
+
 #endif // TIMERTRIGGERS_H

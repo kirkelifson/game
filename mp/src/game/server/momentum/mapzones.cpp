@@ -129,7 +129,7 @@ void CMapzone::SpawnZone()
         m_trigger->SetName(MAKE_STRING("Stage Trigger"));
         ((CTriggerStage *) m_trigger)->SetStageNumber(m_index);
         break;
-        //MOM_TODO: add trigger_momentum_teleport, and momentum_trigger_userinput
+        //MOM_TODO: add trigger_momentum_teleport, and momentum_trigger_userinput, and momentum_trigger_timer_start_bonus
     default:
         break;
     }
@@ -464,6 +464,9 @@ bool ZoneTypeToClass( int type, char *dest )
         return true;
     case MOMZONETYPE_STAGE:
         Q_strcpy(dest, "trigger_momentum_timer_stage");
+        return true;
+    case MOMZONETYPE_BONUS:
+        Q_strcpy(dest, "trigger_momentum_timer_start_bonus");
         return true;
     }
 

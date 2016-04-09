@@ -118,7 +118,7 @@ void CC_Mom_ZoneMark(const CCommand &args)
     CBasePlayer *pPlayer = UTIL_GetLocalPlayer();
 
     if (!pPlayer) return;
-
+    
 
     int zonetype = -1;
 
@@ -317,6 +317,16 @@ void CMapzoneEdit::SetZoneProps(CBaseEntity *pEnt)
         return;
     }
 
+    CTriggerTimerStartBonus *pBonus = dynamic_cast<CTriggerTimerStartBonus*>(pEnt);
+    if (pBonus)
+    {
+        if (mom_zone_stage_num.GetInt() > 0)
+        {
+            pBonus->SetStageNumber(mom_zone_stage_num.GetInt());
+            //MOM_TODO: should this also set 
+        }
+    }
+
 
     /*CTriggerCheckpoint *pCP = dynamic_cast<CTriggerCheckpoint *>( pEnt );
     if ( pCP )
@@ -363,6 +373,9 @@ int CMapzoneEdit::GetEntityZoneType(CBaseEntity *pEnt)
 
     CTriggerStage *pStage = dynamic_cast<CTriggerStage *>(pEnt);
     if (pStage) return MOMZONETYPE_STAGE;
+
+    CTriggerTimerStartBonus *pBonus = dynamic_cast<CTriggerTimerStartBonus*>(pEnt);
+    if (pBonus) return MOMZONETYPE_BONUS;
 
     return -1;
 }
@@ -553,6 +566,10 @@ int CMapzoneEdit::ShortNameToZoneType(const char *in)
     else if (Q_stricmp(in, "stage") == 0)
     {
         return MOMZONETYPE_STAGE;
+    }
+    else if (Q_stricmp(in, "bonus") == 0)
+    {
+        return MOMZONETYPE_BONUS;
     }
 
     return -1;

@@ -51,7 +51,17 @@ public:
     CTriggerCheckpoint *GetCurrentCheckpoint() { return m_pCurrentCheckpoint.Get(); }
 
     // Sets the given trigger as the start trigger
-    void SetStartTrigger(CTriggerTimerStart *pTrigger) { m_pStartTrigger.Set(pTrigger); }
+    void SetStartTrigger(CTriggerTimerStart *pTrigger) 
+    { 
+        CTriggerTimerStartBonus *pBonus = dynamic_cast<CTriggerTimerStartBonus*>(pTrigger);
+        if (pBonus)
+        {
+            //currentRun->SetBonus(true)
+            //MOM_TODO: send the "In bonus zone (bonus zone number)" to client
+        }
+        m_pStartTrigger.Set(pTrigger); 
+    }
+
 
     // Sets the current checkpoint
     void SetCurrentCheckpointTrigger(CTriggerCheckpoint *pTrigger) { m_pCurrentCheckpoint.Set(pTrigger); }
@@ -155,6 +165,13 @@ private:
     CHandle<CTriggerCheckpoint> m_pCurrentCheckpoint;
     CHandle<CTriggerStage> m_pCurrentStage;
 
+    struct Run
+    {
+        int flags;//See the RUNFLAGS in shareddefs
+        bool isBonus;
+        float time;
+    };
+
     struct Time
     {
         //The amount of ticks took to complete
@@ -182,6 +199,8 @@ private:
     const char* c_mapDir = "maps/";
     // Extension used for storing local map times
     const char* c_timesExt = ".tim";
+
+    static Run m_rCurrentRun;
 };
 
 extern CTimer g_Timer;

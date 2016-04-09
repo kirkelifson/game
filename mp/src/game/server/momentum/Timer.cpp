@@ -8,9 +8,11 @@ extern IFileSystem *filesystem;
 void CTimer::Start(int start)
 {
     if (m_bUsingCPMenu) return;
+    if (m_bIsRunning) return;
     m_iStartTick = start;
     SetRunning(true);
     DispatchStateMessage();
+    
 }
 
 void CTimer::PostTime()

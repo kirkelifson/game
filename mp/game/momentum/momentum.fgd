@@ -31,9 +31,9 @@
 @SolidClass base(TeleTrigger) = trigger_momentum_teleport : "A trigger volume that teleports entities that touch it. Entities are teleported to the Remote Destination. "+
     "The entity can have its Angles and Velocity reset by boolean settings." []
 
-@SolidClass base(Trigger) = trigger_momentum_timer_start : "Trigger that starts the timer." 
+@BaseClass base(Trigger) = TimerStart
 [
-	leavespeed(float) : "Max leave speed" : 290 : "Max speed (Units Per Second) the player will be able to leave the trigger if 'Limit Leave Speed' flag is set."
+    leavespeed(float) : "Max leave speed" : 290 : "Max speed (Units Per Second) the player will be able to leave the trigger if 'Limit Leave Speed' flag is set."
 	bhopleavespeed(float) : "Max leave speed if player bhopped" : 250 : "Max speed (Units Per Second) the player will be able to leave the trigger if they bhopped inside the start zone, and 'Limit leave speed if player bhopped' flag is set."
 	lookangles(angle) : "Look angles" : "0 0 0" : "Where player will look when teleported to start."
 	spawnflags(flags) =
@@ -43,6 +43,13 @@
 		4 : "Check only XY for leave speed check" : 1
 		8 : "Limit leave speed if player bhopped" : 1
 	]
+]
+    
+@SolidClass base(TimerStart) = trigger_momentum_timer_start : "Trigger that starts the timer." []
+
+@SolidClass base(TimerStart) = trigger_momentum_timer_start_bonus : "Trigger that starts the timer for bonus stages."
+[
+    stage(integer) : "Zone Number" : 1 : "The zone number that correlates to this bonus zone."
 ]
 
 @SolidClass base(Trigger) = trigger_momentum_timer_stop : "Trigger that stops the timer." []
